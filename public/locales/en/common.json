@@ -1,0 +1,12 @@
+{
+  "title": "NFT Product Verifier",
+  "name": "Name",
+  "creator": "Creator / Company",
+  "description": "Description",
+  "externalUrl": "External URL",
+  "upload": "Upload Image",
+  "mint": "Mint NFT",
+  "connect": "Connect Wallet",
+  "connected": "Connected",
+  "language": "Language"
+}

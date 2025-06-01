@@ -1,3 +1,7 @@
+[!IMPORTANT]
+1 - This Site is Wiorking for now on Both Scroll-Sepolia and Sepolia TestNet Networks
+2 - The Mint Process may take a little more than usuall (around 12 sec) so please be patient !
+
 ## about the project
 
 This project let the user to verify anyhing he wants but mainly we are focusing on the handmade collectable ,treasury, Companies and trademarks
@@ -21,4 +25,28 @@ in the client-website directory we have the client website that includes :
   --app folder : (the main pages of the website and the smartcontract pages)
   it alos hold the api that let us upload the jsonURI to Pinata IPFS cloud
 
-## design patern
+## Design Decisions
+
+i have use Ownable (AccessControl Role Based) to pause or unpause the contract ( i have take this Tip from open-zeppelin wizard)
+
+## important links & addresses
+
+NEXT_PUBLIC_CONTRACT_ADDRESS_Scroll=0x0Ae91Ff4206207AFD977ecad8C0de569d252ddE1
+NEXT_PUBLIC_CONTRACT_ADDRESS_Sepolia=0x66A1CC3cdbC7121C2b1f1B9590f8C9fbA3c4c21E
+
+## how to run test
+
+forge test : for noraml test
+forge test -vv : for more detailed test
+
+## how to run
+
+npm run dev
+
+## how to mint
+
+1 - login with your wallet (tested with metamask)
+2 - select the network (Sepolia or Scroll-Sepolia)
+3 - makesure you hane enough balance in your account
+4 - fill the form and click on the mint button
+5 - wait for the transaction to be mined and the NFT will be minted to your account
