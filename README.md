@@ -50,3 +50,7 @@ npm run dev
 3 - makesure you hane enough balance in your account
 4 - fill the form and click on the mint button
 5 - wait for the transaction to be mined and the NFT will be minted to your account
+
+## Project Link
+
+https://nft-verifier-project.vercel.app/
