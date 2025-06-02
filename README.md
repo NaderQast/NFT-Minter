@@ -51,6 +51,13 @@ npm run dev
 4 - fill the form and click on the mint button
 5 - wait for the transaction to be mined and the NFT will be minted to your account
 
+## environment variables Setup
+
+NEXT_PUBLIC_CONTRACT_ADDRESS_Scroll
+NEXT_PUBLIC_CONTRACT_ADDRESS_Sepolia
+PINATA_JWT
+NEXT_PUBLIC_PROJECT_ID
+
 ## Project Link
 
 https://nft-verifier-project.vercel.app/
