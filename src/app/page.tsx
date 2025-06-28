@@ -6,7 +6,7 @@ import { generatePinataKey, uploadFile, uploadJson } from "../../utils/upload";
 import { useAppKitAccount } from "@reown/appkit/react";
 import { writeContract, waitForTransactionReceipt } from "wagmi/actions";
 import { getWalletClient } from "wagmi/actions";
-
+import { useChainId } from "wagmi";
 import { CONTRACT_ADDRESSES } from "@/constants/contracts";
 import { toast } from "sonner";
 import { config } from "@/config";
@@ -24,17 +24,9 @@ export default function Home() {
 
   const { address, isConnected } = useAppKitAccount();
 
+  const chainId = useChainId();
+
   async function mintNft() {
-    const timestamp = Math.floor(new Date(creationDateInput).getTime() / 1000);
-
-    const walletClient = await getWalletClient(config);
-
-    if (!walletClient) {
-      toast.error("Wallet not connected");
-      return;
-    }
-
-    const chainId = walletClient.chain.id;
     const contractAddress = CONTRACT_ADDRESSES[chainId];
 
     if (!contractAddress) {
@@ -48,6 +40,7 @@ export default function Home() {
       toast.error("Missing wallet or file.");
       return;
     }
+    const timestamp = Math.floor(new Date(creationDateInput).getTime() / 1000);
 
     try {
       const keyData = await generatePinataKey();
