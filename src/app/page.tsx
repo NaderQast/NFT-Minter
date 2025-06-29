@@ -137,6 +137,7 @@ export default function Home() {
           <w3m-connect-button />
         </button>
       )}
+      <div className="red-test">sss</div>
     </div>
   );
 }
