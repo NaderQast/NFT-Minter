@@ -195,7 +195,7 @@ function LanguageSwitcher() {
   const { i18n } = useTranslation();
   return (
     <select
-      className="select select-sm bg-gray-100 border-gray-200 focus:border-cyan-500 focus:ring-cyan-500 text-gray-700"
+      className="select select-sm select-bordered"
       value={i18n.language}
       onChange={(e) => i18n.changeLanguage(e.target.value)}
     >
