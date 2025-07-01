@@ -81,63 +81,112 @@ export default function Home() {
   }
 
   return (
-    <div className="p-6 max-w-xl mx-auto flex flex-col gap-4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">{t("title")}</h1>
-        <LanguageSwitcher />
+    <div className="min-h-screen bg-gray-50 p-6 flex flex-col items-center">
+      <div className="w-full max-w-xl bg-white rounded-xl shadow-sm p-8 border border-gray-100">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+            {t("title")}
+          </h1>
+          <LanguageSwitcher />
+        </div>
+
+        {isConnected ? (
+          <div className="space-y-6">
+            <div className="flex gap-2">
+              <w3m-account-button />
+              <w3m-network-button />
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("name")}
+                </label>
+                <input
+                  className="input w-full bg-gray-100 border-gray-200 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  placeholder={t("name")}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("creator")}
+                </label>
+                <input
+                  className="input w-full bg-gray-100 border-gray-200 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  placeholder={t("creator")}
+                  value={creator}
+                  onChange={(e) => setCreator(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("description")}
+                </label>
+                <input
+                  className="input w-full bg-gray-100 border-gray-200 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  placeholder={t("description")}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("externalUrl")}
+                </label>
+                <input
+                  className="input w-full bg-gray-100 border-gray-200 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  placeholder={t("externalUrl")}
+                  value={externalUrl}
+                  onChange={(e) => setExternalUrl(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("creationDate")}
+                </label>
+                <input
+                  type="datetime-local"
+                  className="text-gray-500 input w-full bg-gray-100 border-gray-200 focus:bg-gray-700 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  value={creationDateInput}
+                  onChange={(e) => setCreationDateInput(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("nftImage")}
+                </label>
+                <input
+                  type="file"
+                  className="text-gray-500 file-input w-full bg-gray-100 border-gray-200 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  onChange={(e) => setFile(e.target.files?.[0])}
+                />
+              </div>
+            </div>
+
+            <button
+              className="btn w-full bg-cyan-600 hover:bg-cyan-700 text-white border-0 shadow-md hover:shadow-lg transition-all"
+              onClick={mintNft}
+            >
+              {t("mint")}
+            </button>
+          </div>
+        ) : (
+          <div className="text-center py-8">
+            <h2 className="text-xl font-medium text-gray-700 mb-4">
+              Connect your wallet to mint NFTs
+            </h2>
+            <button className="btn btn-outline border-cyan-500 text-cyan-600 hover:bg-cyan-50">
+              <w3m-connect-button />
+            </button>
+          </div>
+        )}
       </div>
-
-      {isConnected ? (
-        <>
-          <w3m-account-button />
-          <w3m-network-button />
-          <input
-            className="input input-bordered w-full"
-            placeholder={t("name")}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            className="input input-bordered w-full"
-            placeholder={t("creator")}
-            value={creator}
-            onChange={(e) => setCreator(e.target.value)}
-          />
-          <input
-            className="input input-bordered w-full"
-            placeholder={t("description")}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <input
-            className="input input-bordered w-full"
-            placeholder={t("externalUrl")}
-            value={externalUrl}
-            onChange={(e) => setExternalUrl(e.target.value)}
-          />
-
-          <input
-            type="datetime-local"
-            className="input input-bordered w-full"
-            value={creationDateInput}
-            onChange={(e) => setCreationDateInput(e.target.value)}
-          />
-
-          <input
-            type="file"
-            className="file-input file-input-bordered w-full"
-            onChange={(e) => setFile(e.target.files?.[0])}
-          />
-          <button className="btn btn-primary" onClick={mintNft}>
-            {t("mint")}
-          </button>
-        </>
-      ) : (
-        <button className="btn btn-outline">
-          <w3m-connect-button />
-        </button>
-      )}
-      <div className="red-test">sss</div>
     </div>
   );
 }
@@ -146,7 +195,7 @@ function LanguageSwitcher() {
   const { i18n } = useTranslation();
   return (
     <select
-      className="select select-sm select-bordered"
+      className="select select-sm bg-gray-100 border-gray-200 focus:border-cyan-500 focus:ring-cyan-500 text-gray-700"
       value={i18n.language}
       onChange={(e) => i18n.changeLanguage(e.target.value)}
     >

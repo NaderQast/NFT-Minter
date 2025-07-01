@@ -4,6 +4,8 @@
   "creator": "Creator / Company",
   "description": "Description",
   "externalUrl": "External URL",
+  "creationDate": "Creation Date",
+  "nftImage": "NFT Image",
   "upload": "Upload Image",
   "mint": "Mint NFT",
   "connect": "Connect Wallet",

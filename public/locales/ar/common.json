@@ -1,9 +1,11 @@
 {
-  "title": "  منصة لتوثيق المنتجات",
+  "title": "منصة لتوثيق المنتجات",
   "name": "الاسم",
   "creator": "المنشئ / الشركة",
   "description": "الوصف",
   "externalUrl": "رابط خارجي",
+  "creationDate": "تاريخ الإنشاء",
+  "nftImage": "صورة NFT",
   "upload": "رفع الصورة",
   "mint": "سك NFT",
   "connect": "اتصال المحفظة",
