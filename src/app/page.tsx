@@ -81,8 +81,8 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6 flex flex-col items-center">
-      <div className="w-full max-w-xl bg-white rounded-xl shadow-sm p-8 border border-gray-100">
+    <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
+      <div className="w-full max-w-xl bg-gray-200 rounded-xl shadow-sm p-8 border border-gray-300">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
             {t("title")}
@@ -92,9 +92,13 @@ export default function Home() {
 
         {isConnected ? (
           <div className="space-y-6">
-            <div className="flex gap-2">
-              <w3m-account-button />
-              <w3m-network-button />
+            <div className="flex gap-2 ">
+              <div className="bg-cyan-600 rounded-3xl hover:bg-cyan-700">
+                <w3m-account-button />
+              </div>
+              <div className="bg-cyan-600 rounded-3xl hover:bg-cyan-700">
+                <w3m-network-button />
+              </div>
             </div>
             <div className="space-y-4">
               <div>
@@ -102,7 +106,7 @@ export default function Home() {
                   {t("name")}
                 </label>
                 <input
-                  className="input w-full bg-gray-100 border-gray-200 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  className="input w-full bg-gray-100 border-gray-400 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
                   placeholder={t("name")}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -114,7 +118,7 @@ export default function Home() {
                   {t("creator")}
                 </label>
                 <input
-                  className="input w-full bg-gray-100 border-gray-200 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  className="input w-full bg-gray-100 border-gray-400 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
                   placeholder={t("creator")}
                   value={creator}
                   onChange={(e) => setCreator(e.target.value)}
@@ -126,7 +130,7 @@ export default function Home() {
                   {t("description")}
                 </label>
                 <input
-                  className="input w-full bg-gray-100 border-gray-200 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  className="input w-full bg-gray-100 border-gray-400 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
                   placeholder={t("description")}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
@@ -138,7 +142,7 @@ export default function Home() {
                   {t("externalUrl")}
                 </label>
                 <input
-                  className="input w-full bg-gray-100 border-gray-200 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  className="input w-full bg-gray-100 border-gray-400 text-gray-900 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
                   placeholder={t("externalUrl")}
                   value={externalUrl}
                   onChange={(e) => setExternalUrl(e.target.value)}
@@ -151,7 +155,7 @@ export default function Home() {
                 </label>
                 <input
                   type="datetime-local"
-                  className="text-gray-500 input w-full bg-gray-100 border-gray-200 focus:bg-gray-700 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  className="text-gray-500 input w-full bg-gray-100 border-gray-400 focus:bg-gray-700 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
                   value={creationDateInput}
                   onChange={(e) => setCreationDateInput(e.target.value)}
                 />
@@ -163,7 +167,7 @@ export default function Home() {
                 </label>
                 <input
                   type="file"
-                  className="text-gray-500 file-input w-full bg-gray-100 border-gray-200 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  className="text-gray-500 file-input w-full bg-gray-100 border-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
                   onChange={(e) => setFile(e.target.files?.[0])}
                 />
               </div>
@@ -195,7 +199,7 @@ function LanguageSwitcher() {
   const { i18n } = useTranslation();
   return (
     <select
-      className="select select-sm select-bordered"
+      className="select select-sm bg-gray-100 border-gray-300 text-gray-700 focus:border-cyan-500 focus:ring-cyan-500"
       value={i18n.language}
       onChange={(e) => i18n.changeLanguage(e.target.value)}
     >
