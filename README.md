@@ -60,4 +60,4 @@ NEXT_PUBLIC_PROJECT_ID
 
 ## Project Link
 
-https://nft-verifier-project.vercel.app/
+https://nft-minter-mu-six.vercel.app/
