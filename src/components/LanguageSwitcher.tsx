@@ -12,7 +12,7 @@ export default function LanguageSwitcher() {
 
   return (
     <select
-      className="select select-sm select-bordered max-w-xs"
+      className="select select-sm select-bordered max-w-xs bg-gray-400"
       value={i18n.language}
       onChange={handleLanguageChange}
     >
